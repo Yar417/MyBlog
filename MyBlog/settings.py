@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os.path
+import django_heroku
 from pathlib import Path
 from django.conf.global_settings import LOGIN_URL
 
@@ -135,3 +136,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'miamiyiarik.93@gmail.com'
 EMAIL_HOST_PASSWORD = 'ylpidckeabzxolzf'
+
+django_heroku.settings(locals())
