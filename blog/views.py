@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
-from .models import News
+
+from .forms import ContactForm
+from .models import News, Contact
 from django.views.generic import (
     ListView,
     DetailView,
@@ -9,6 +11,8 @@ from django.views.generic import (
     DeleteView,
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib import messages
+from django.core.mail import send_mail, BadHeaderError
 
 
 # def home(request):
@@ -19,8 +23,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 #     return render(request, 'blog/home.html', data)
 #
 #
-def contacts(request):
-    return render(request, 'blog/contacts.html', {'title': 'Страница контакты'})
 
 
 class ShowNewsView(ListView):
@@ -114,3 +116,24 @@ class DeleteNewsView(DeleteView, LoginRequiredMixin, UserPassesTestMixin):
         if self.request.user == news.author:
             return True
         return False
+
+
+def contacts(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Your message successfully posted!')
+            try:
+                subject = f'MyBlog. Theme: {form.cleaned_data["theme"]} '
+                plain_message = f' Message: {form.cleaned_data["message"]}'
+                from_email = f'From {form.cleaned_data["email"]}'
+                to = 'y.negodenko@gmail.com'
+                send_mail(subject, plain_message, from_email, [to])
+            except BadHeaderError:
+                return print('Uncorrected')
+        return redirect('home')
+
+    else:
+        form = ContactForm()
+    return render(request, 'blog/contacts.html', {'title': 'Contact us', 'form': form})
