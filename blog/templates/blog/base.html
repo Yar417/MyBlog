@@ -67,7 +67,42 @@
                 {% endblock %}
             </div>
             <div class="col-md-4">
-                <h3>Боковая часть</h3>
+                <h3>Scientific news</h3>
+                <img src="https://www.sciencenews.org/wp-content/uploads/2022/12/120922_cg_Yellowstone-volcano_feat-1164x776.jpg" alt="image"
+         class="img-thumbnail mt-3">
+                <p>New seismic analyses of the magma under the Yellowstone supervolcano are sharpening
+                    the picture of what lies beneath and keeps features such as the Grand Prismatic Hot Spring
+                    (shown) simmering.?</p>
+                <a href="https://www.sciencenews.org/article/yellowstone-volcano-erupt-more-magma-found">
+                    <button class="btn btn-warning m-2">Read more</button>
+                </a>
+
+                <img src="https://www.sciencenews.org/wp-content/uploads/2022/12/120722_cl_silent-synapses_feat-1380x776.jpg" alt="image"
+                     class="img-thumbnail mt-3">
+                <p>Extensions branch out of a nerve cell (illustrated) to create connections called synapses.
+                    Inactive, or silent, synapses, now found in adult mice, may be important for forming new memories,
+                    new research suggests.</p>
+                <a href="https://www.sciencenews.org/article/adult-mouse-brains-silent-synapses-memories">
+                    <button class="btn btn-warning m-2">Read more</button>
+                </a>
+
+                <img src="https://www.sciencenews.org/wp-content/uploads/2018/01/020318_LS_memory_feat.jpg" alt="image"
+                     class="img-thumbnail mt-3">
+                <p>Extensions branch out of a nerve cell (illustrated) to create connections called synapses.
+                    Inactive, or silent, synapses, now found in adult mice, may be important for forming new memories,
+                    new research suggests.</p>
+                <a href="https://www.sciencenews.org/article/memory-brain-engram-neuroscience"
+                    <button class="btn btn-warning m-2">Read more</button>
+                </a>
+
+                <img src="https://www.sciencenews.org/wp-content/uploads/2022/12/121722_long-covid_feat-1380x776.jpg" alt="image"
+                     class="img-thumbnail mt-3">
+                <p>2022 was the year long COVID couldn’t be ignored.
+                    Doctors are still looking for ways to treat the lingering symptoms.
+                </p>
+                <a href="https://www.sciencenews.org/article/2022-long-covid-lingering-symptoms-treatments">
+                    <button class="btn btn-warning m-2">Read more</button>
+                </a>
 
                 {% block aside_block%}
 
@@ -77,13 +112,10 @@
     </div>
     <footer class="py-3 mt-4 bg-dark">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+      <li class="nav-item"><a href="{% url 'home' %}" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="{% url 'contacts' %}" class="nav-link px-2 text-muted">Contact us</a></li>
     </ul>
-    <p class="text-center text-muted">© 2022 Company, Inc</p>
+    <p class="text-center text-muted">© 2022 MyBlog</p>
   </footer>
     <script src="https://kit.fontawesome.com/c4486d6589.js" crossorigin="anonymous"></script>
 </body>
