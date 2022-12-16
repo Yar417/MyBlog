@@ -124,11 +124,12 @@ def contacts(request):
         if form.is_valid():
             form.save()
             messages.success(request, f'Your message successfully posted!')
+            # For sending messages to the owner of site or another e-mail
             try:
                 subject = f'MyBlog. Theme: {form.cleaned_data["theme"]} '
                 plain_message = f' Message: {form.cleaned_data["message"]}'
                 from_email = f'From {form.cleaned_data["email"]}'
-                to = 'y.negodenko@gmail.com'
+                to = 'mypost@gmail.com'
                 send_mail(subject, plain_message, from_email, [to])
             except BadHeaderError:
                 return print('Uncorrected')
