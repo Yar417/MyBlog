@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, reverse_lazy
 from users import views as userViews
 from django.contrib.auth import views as authViews
 from django.conf import settings
@@ -12,7 +12,12 @@ urlpatterns = [
     path('profile/', userViews.profile, name='profile'),
     path('user/', authViews.LoginView.as_view(template_name='users/user.html'), name='user'),
     path('exit/', authViews.LogoutView.as_view(template_name='users/exit.html'), name='exit'),
-    path('pass-reset/', authViews.PasswordResetView.as_view(template_name='users/pass_reset.html'), name='pass-reset'),
+    path(
+        'pass-reset/',
+        authViews.PasswordResetView.as_view(template_name='users/pass_reset.html'),
+        name='pass-reset',
+        success_url=reverse_lazy('accounts:password_reset_done')
+    ),
     path(
         'password_reset_confirm/<uidb64>/<token>/',
         authViews.PasswordResetConfirmView.as_view(template_name='users/password-reset-confirm.html'),
