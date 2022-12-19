@@ -7,7 +7,7 @@
 {% block content %}
     <h1 class="mb-3">{{ title }}</h1>
     <div class="alert alert-light text-black p-3">
-        <form method="post" class="form-register auth">
+        <form method="post" class="form-register auth" enctype="multipart/form-data">
         {% csrf_token %}
             {{ form.as_p }}    <!--  поле как параграфы-->
             <hr>

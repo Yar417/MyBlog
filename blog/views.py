@@ -67,7 +67,7 @@ class NewsDetailView(DetailView):
 class CreateNewsView(LoginRequiredMixin, CreateView):
     model = News
     template_name = 'blog/create_news.html'
-    fields = ['title','img', 'text']
+    fields = ['title', 'img', 'text']
 
     def get_context_data(self, **kwargs):
         ctx = super(CreateNewsView, self).get_context_data(**kwargs)
