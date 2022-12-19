@@ -67,8 +67,7 @@ class NewsDetailView(DetailView):
 class CreateNewsView(LoginRequiredMixin, CreateView):
     model = News
     template_name = 'blog/create_news.html'
-
-    fields = ['title', 'text']
+    fields = ['title','img', 'text']
 
     def get_context_data(self, **kwargs):
         ctx = super(CreateNewsView, self).get_context_data(**kwargs)
@@ -86,7 +85,7 @@ class UpdateNewsView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = News
     template_name = 'blog/create_news.html'
 
-    fields = ['title', 'text']
+    fields = ['title', 'text', 'img']
 
     def get_context_data(self, **kwargs):
         ctx = super(UpdateNewsView, self).get_context_data(**kwargs)
