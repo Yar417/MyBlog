@@ -28,7 +28,7 @@
         </ul>
 
           {% if not user.is_authenticated%}
-        <ul class=" float-end mb-2 float-sm-start ">
+        <ul class=" float-end mb-2 float-sm-start pt-2">
           <a class="text-decoration-none" href="{% url 'reg' %}">
               <button class="btn btn-outline-warning btn-sm">Reg</button>
           </a>
@@ -37,7 +37,7 @@
           </a>
         </ul>
           {% else %}
-        <ul class=" float-end float-sm-start mb-2" style="margin-left: -33px;">
+        <ul class=" float-end float-sm-start mb-2 pt-2" style="margin-left: -33px;">
           <a class="text-decoration-none" href="{% url 'news-add' %}">
               <button class="btn btn-outline-secondary btn-sm">Add News</button>
           </a>
