@@ -9,10 +9,10 @@ class Profile(models.Model):
                             default='icon_user.png',
                             upload_to='user_img')
     choice = (
-        ('male', 'Мужской пол'),
-        ('female', 'Женский пол'),
-        ('neutral', 'Гендерно-нейтральный'),
-        ('other', 'Другой пол'),
+        ('male', 'Male'),
+        ('female', 'Female'),
+        ('neutral', 'Gender neutral'),
+        ('other', 'Other gender'),
     )
     gender = models.CharField(choices=choice, max_length=7, default='other')
 

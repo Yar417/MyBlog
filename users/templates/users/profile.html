@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="mb-3">Your account</h1>
+<h1 class="mb-3">Your Profile</h1>
 <div class="d-flex text-muted pt-3">
     <img class="user-images bd-placeholder-img flex-shrink-0 me-2" width="64"
          height="64" src="{{ user.profile.img.url}}">
@@ -18,10 +18,10 @@
 </div>
 <form method="post" enctype="multipart/form-data" class="form-register mt-4">
     {% csrf_token %}
-    {{ updateUserForm.as_p }}    <!--  поле как параграфы-->
+    {{ updateUserForm.as_p }}
     {{ profileForm.as_p }}
-    {{ profileUpdateForm.as_p}}<!--  поле как параграфы-->
-    <button class="btn btn-outline-warning" type="submit">Обновить</button>
+    {{ profileUpdateForm.as_p}}
+    <button class="btn btn-outline-warning" type="submit">Update Profile</button>
 </form>
 {% endblock%}
 

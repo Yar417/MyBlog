@@ -81,7 +81,7 @@ class ProfileUpdateForm(forms.ModelForm):
     notifications = forms.BooleanField(
         label=False,
         required=False,
-        help_text='Получать уведомления на почту о новых статьях?'
+        help_text='Receive email notifications for new articles?'
     )
 
     class Meta:

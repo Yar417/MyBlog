@@ -10,7 +10,7 @@
         <form method="post" class="form-register">
         {% csrf_token %}
             {{ form.as_p }}    <!--  поле как параграфы-->
-            <button class="btn btn-outline-warning" type="submit">Зарегистрироваться</button>
+            <button class="btn btn-outline-warning" type="submit">Registration</button>
             <hr>
             <p>Already registered? <a href="{% url 'user' %}"> Sign in</a></p>
         </form>

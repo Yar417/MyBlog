@@ -18,10 +18,10 @@
 
             <div class="col-sm-auto col-10-md  pt-2">
                 {% if el.author%}
-                    <span class="text-muted">Публикация: {{ el.date|date:'j F y, в H:i'}}</span>
+                    <span class="text-muted">Published: {{ el.date|date:'j F y, в H:i'}}</span>
                     <p><b>Автор: </b><a href="{% url 'user-news' el.author %}">@{{ el.author }}</a></p>
                 {% else %}
-                    <p style="color:grey;">Автор неизвестен. Публикация: {{ el.date|date:'j F y, в H:i'}}</p>
+                    <p style="color:grey;">Published: {{ el.date|date:'j F y, в H:i'}}</p>
                 {% endif %}
             </div>
         </div>
