@@ -10,11 +10,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-te#iz0^y!puvz)3&%66!25t-2^jjp20yij*ja+&p181hw1#g07'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-te#iz0^y!psvdfhtrbvcagre657565uvz)3&%66!25t-2^jjp20yij*ja+&p181hw1#g07')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+# DEBUG = True
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 ALLOWED_HOSTS = ["yar417-myblog-django.herokuapp.com"]
 
 # Application definition
@@ -128,4 +128,3 @@ EMAIL_HOST_PASSWORD = 'wxydfcxkoxbguxuy'
 EMAIL_PORT = 587
 
 django_heroku.settings(locals())
-
