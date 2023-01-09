@@ -1,5 +1,4 @@
 import os.path
-import django_heroku
 from pathlib import Path
 from django.conf.global_settings import LOGIN_URL
 
@@ -15,7 +14,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-te#iz0^y!psvdf
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
-ALLOWED_HOSTS = ["yar417-myblog-django.herokuapp.com"]
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -127,4 +126,3 @@ EMAIL_HOST_USER = 'y.negodenko@gmail.com'
 EMAIL_HOST_PASSWORD = 'wxydfcxkoxbguxuy'
 EMAIL_PORT = 587
 
-django_heroku.settings(locals())
